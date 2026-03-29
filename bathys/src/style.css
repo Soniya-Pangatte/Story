@@ -92,7 +92,11 @@ section {
 }
 .zone-body {
   font-family: var(--font-sans); font-weight: 300; font-size: clamp(0.95rem, 1.2vw, 1.15rem);
-  line-height: 1.8; opacity: 0.8; max-width: 500px; margin-bottom: 3rem;
+  line-height: 1.8; opacity: 1; max-width: 500px; margin-bottom: 2rem; color: var(--bio-glow);
+}
+.story-passage {
+  font-family: var(--font-sans); font-weight: 300; font-size: clamp(0.95rem, 1.3vw, 1.2rem);
+  line-height: 1.9; opacity: 0.9; max-width: 700px; margin: 0 auto 3rem auto; text-align: center;
 }
 .zone-label {
   font-family: var(--font-mono); font-size: 0.75rem;
@@ -238,6 +242,10 @@ section {
 /* === FADE ELEMENTS === */
 .fade-element { opacity: 0; transform: translateY(40px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
 .fade-element.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
 
 /* === SMOOTH PREMIUM ANIMATIONS === */
 @keyframes premiumFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
