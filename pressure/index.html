@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bathys — Ocean Depths</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div id="depth-gauge">0m</div>
+  <div id="grain-overlay"></div>
+  <div id="vignette"></div>
+
+  <!-- SECTION 1: SURFACE -->
+  <section id="surface">
+    <div class="caustics"></div>
+    <div class="surface-content">
+      <h1 class="hero-title">Most of Earth's surface has never been seen.</h1>
+      <p class="hero-sub">Scroll to descend.</p>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: SUNLIGHT ZONE -->
+  <section id="sunlight">
+    <div class="zone-label">Sunlight Zone — 0 to 200m</div>
+    <h2 class="zone-title fade-element">The World You Know</h2>
+    <p class="zone-body fade-element">Warm. Lit. Teeming with life.<br>Below this line, the rules change.</p>
+    <div class="creature-cards">
+      <div class="card fade-element">
+        <div class="card-icon">🪼</div>
+        <h3>Moon Jellyfish</h3>
+        <p>Drifts with the current. No brain. No heart. Immortal.</p>
+      </div>
+      <div class="card fade-element">
+        <div class="card-icon">🐢</div>
+        <h3>Sea Turtle</h3>
+        <p>Navigates by magnetic fields. Has existed for 110 million years.</p>
+      </div>
+      <div class="card fade-element">
+        <div class="card-icon">🐠</div>
+        <h3>Clownfish</h3>
+        <p>All clownfish are born male. The dominant one becomes female.</p>
+      </div>
+    </div>
+    <div class="depth-counter-display"><span id="sunlight-counter">0</span>m</div>
+    <div class="kelp-parallax kelp-back"></div>
+    <div class="kelp-parallax kelp-front"></div>
+  </section>
+
+  <!-- SECTION 3: TWILIGHT ZONE -->
+  <section id="twilight">
+    <div class="zone-label">Twilight Zone — 200 to 1000m</div>
+    <h2 class="zone-title fade-element">The Light Dies Here</h2>
+    <p class="zone-body fade-element">Only 1% of sunlight reaches this depth.<br>What lives here makes its own light.</p>
+    <div class="sonar-container">
+      <button id="sonar-btn">PING SONAR</button>
+      <div class="sonar-ring" id="sonar-ring"></div>
+      <div class="hidden-creatures">
+        <span class="hidden-creature" style="top:30%;left:15%">👁</span>
+        <span class="hidden-creature" style="top:55%;left:75%">🦑</span>
+        <span class="hidden-creature" style="top:20%;left:65%">🐟</span>
+      </div>
+    </div>
+    <div class="panorama-wrapper" id="panorama-wrapper">
+      <div class="panorama-track" id="panorama-track">
+        <div class="panorama-item"><span>🪼</span><p>Siphonophore — 40m long colonial organism</p></div>
+        <div class="panorama-item"><span>🦑</span><p>Giant Squid — hunts in total darkness</p></div>
+        <div class="panorama-item"><span>🐙</span><p>Vampire Squid — bleeds bioluminescent ink</p></div>
+        <div class="panorama-item"><span>🐋</span><p>Sperm Whale — dives here to hunt squid</p></div>
+      </div>
+    </div>
+    <div class="bio-particles" id="bio-particles"></div>
+  </section>
+
+  <!-- SECTION 4: ABYSSAL PLAIN -->
+  <section id="abyssal">
+    <div class="zone-label">Abyssal Plain — 1000 to 6000m</div>
+    <h2 class="zone-title fade-element">No Light. No Surface.</h2>
+    <p class="zone-body fade-element">Pressure here is 600 times what you feel right now.<br>And still — life.</p>
+    <div class="abyssal-timeline">
+      <div class="timeline-mark fade-element">1,000m — Midnight Zone begins</div>
+      <div class="timeline-mark fade-element">2,000m — No sunlight ever</div>
+      <div class="timeline-mark fade-element">3,800m — Titanic wreck site</div>
+      <div class="timeline-mark fade-element">4,000m — Abyssal Plain floor</div>
+      <div class="timeline-mark fade-element">6,000m — Hadal Zone threshold</div>
+    </div>
+    <div class="anglerfish-container" id="anglerfish-container">
+      <div class="anglerfish-lure" id="anglerfish-lure">●</div>
+      <div class="anglerfish-body" id="anglerfish-body">
+        <span class="teeth">⌇⌇⌇⌇⌇</span>
+        <span class="eye">◉</span>
+      </div>
+    </div>
+    <p class="hint-text fade-element">[ click the light ]</p>
+  </section>
+
+  <!-- SECTION 5: HADAL ZONE -->
+  <section id="hadal">
+    <div class="zone-label">Hadal Zone — 6000 to 11,000m</div>
+    <div class="pressure-crack"></div>
+    <div class="pulse-organism"></div>
+    <h2 class="zone-title" id="hadal-title"></h2>
+    <p class="zone-body fade-element">The ocean covers 71% of our planet.<br>We have explored less than 20% of it.</p>
+    <div class="resurface-prompt">↑ resurface</div>
+  </section>
+
+  <script src="main.js"></script>
+</body>
+</html>
