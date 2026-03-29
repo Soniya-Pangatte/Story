@@ -208,19 +208,19 @@ function initHero3D() {
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  // 1. Abstract Probe Core
+  // 1. Abstract Probe Core - Solid Navy lines against bright blue surface
   const coreGeo = new THREE.IcosahedronGeometry(1.2, 1);
   const coreMat = new THREE.MeshBasicMaterial({ 
-    color: 0x00F0FF, wireframe: true, transparent: true, opacity: 0.15 
+    color: 0x0a192f, wireframe: true, transparent: true, opacity: 0.35 
   });
   const coreMesh = new THREE.Mesh(coreGeo, coreMat);
 
   // 2. Inner Dark Mass
   const innerGeo = new THREE.OctahedronGeometry(0.8, 0);
-  const innerMat = new THREE.MeshBasicMaterial({ color: 0x0B1120 });
+  const innerMat = new THREE.MeshBasicMaterial({ color: 0x051020 });
   const innerMesh = new THREE.Mesh(innerGeo, innerMat);
 
-  // 3. Sonar Particles (Marine Snow Cloud)
+  // 3. Sonar Particles (Deep Blue Marine Snow)
   const particlesGeo = new THREE.BufferGeometry();
   const particleCount = 800;
   const posArray = new Float32Array(particleCount * 3);
@@ -229,7 +229,7 @@ function initHero3D() {
   }
   particlesGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
   const particleMat = new THREE.PointsMaterial({
-    size: 0.015, color: 0x00F0FF, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending
+    size: 0.015, color: 0x0044cc, transparent: true, opacity: 0.8, blending: THREE.NormalBlending
   });
   const particlesMesh = new THREE.Points(particlesGeo, particleMat);
 
@@ -239,9 +239,9 @@ function initHero3D() {
   group.add(particlesMesh);
   
   if (window.innerWidth > 768) {
-    group.position.x = 2.5; // Shift right on desktop
+    group.position.x = 2.5; 
   } else {
-    group.position.y = 1.6; // Shift up on mobile
+    group.position.y = 1.6; 
   }
   scene.add(group);
 
@@ -250,7 +250,7 @@ function initHero3D() {
 
   function animate() {
     frame = requestAnimationFrame(animate);
-    if (window.scrollY > window.innerHeight * 1.5) return; // Save GPU
+    if (window.scrollY > window.innerHeight * 1.5) return; 
 
     const t = clock.getElapsedTime();
     group.rotation.y = t * 0.1;
@@ -278,18 +278,16 @@ function initHero3D() {
 }
 
 // === INIT ===
-document.addEventListener('DOMContentLoaded', () => {
-  initHero3D();
-  initDepthGauge();
-  initVignette();
-  initFadeElements();
-  initSunlightCounter();
-  initParallax();
-  initSonar();
-  initPanorama();
-  initParticles();
-  initAnglerfish();
-  initTimeline();
-  initHadalTyping();
-  initResurface();
-});
+try { initHero3D(); } catch(e) { console.warn('ThreeJS blocked:', e); }
+initDepthGauge();
+initVignette();
+initFadeElements();
+initSunlightCounter();
+initParallax();
+initSonar();
+initPanorama();
+initParticles();
+initAnglerfish();
+initTimeline();
+initHadalTyping();
+initResurface();
