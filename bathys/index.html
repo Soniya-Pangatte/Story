@@ -1,133 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bathys — Ocean Depths</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/src/style.css" />
-</head>
-<body>
-
-  <div id="depth-gauge">0m</div>
-  <div id="grain-overlay"></div>
-  <div id="vignette"></div>
-
-  <!-- SECTION 1: SURFACE -->
-  <section id="surface">
-    <div class="caustics"></div>
-    <div class="surface-content">
-      <h1 class="hero-title fade-element visible">Most of Earth's surface<br>has never been seen.</h1>
-      <p class="hero-sub fade-element visible delay-1">Oceans cover 71% of our world, yet remain our greatest mystery.</p>
-      <div class="scroll-arrow fade-element visible delay-2">↓</div>
-    </div>
-  </section>
-
-  <!-- SECTION 2: SUNLIGHT ZONE -->
-  <section id="sunlight">
-    <div class="zone-label fade-element">Sunlight Zone (Epipelagic) — 0 to 200m</div>
-    <h2 class="zone-title fade-element delay-1">The World You Know</h2>
-    <p class="zone-body fade-element delay-2">Warm. Lit. Teeming with life.<br>Below this line, the rules change.</p>
-    
-    <p class="story-passage fade-element delay-3">
-      You are leaving the familiar behind. Nearly 90% of all marine life exists within this warm, sunlit layer because it is the only zone where photosynthesis is possible. But sunlight is a privilege. As you sink past 200 meters, the plants disappear, the water turns frigid, and the survival mechanics of the entire ocean shift from relying on the sun into relying on the shadows.
-    </p>
-
-    <div class="creature-cards">
-      <div class="card fade-element delay-1">
-        <div class="card-icon">🪼</div>
-        <h3>Moon Jellyfish</h3>
-        <p>Drifts with the current. No brain. No heart. Highly adaptable to changing oceans.</p>
-      </div>
-      <div class="card fade-element delay-2">
-        <div class="card-icon">🐢</div>
-        <h3>Sea Turtle</h3>
-        <p>Navigates entirely by the Earth's magnetic fields. Has existed for 110 million years.</p>
-      </div>
-      <div class="card fade-element delay-3">
-        <div class="card-icon">🦈</div>
-        <h3>Great White</h3>
-        <p>Apex predators of the sunlight layer, capable of detecting a single drop of blood miles away.</p>
-      </div>
-    </div>
-    <div class="depth-counter-display fade-element"><span id="sunlight-counter">0</span>m</div>
-    <div class="kelp-parallax kelp-back"></div>
-    <div class="kelp-parallax kelp-front"></div>
-  </section>
-
-  <!-- SECTION 3: TWILIGHT ZONE -->
-  <section id="twilight">
-    <div class="zone-label fade-element">Twilight Zone (Mesopelagic) — 200 to 1000m</div>
-    <h2 class="zone-title fade-element delay-1">The Light Dies Here</h2>
-    <p class="zone-body fade-element delay-2">Only 1% of sunlight reaches this depth.<br>What lives here makes its own light.</p>
-    
-    <p class="story-passage fade-element delay-3">
-      The ocean turns into an endless dusk. You are now entering the staging ground of the greatest daily migration on our planet: millions of creatures rise to the surface at night to feed, and sink back into the twilight by day to hide from predators. To survive total darkness, evolution invented bioluminescence—a living chemical light used to hunt, mate, and deceive.
-    </p>
-
-    <div class="sonar-container fade-element delay-1">
-      <button id="sonar-btn">PING SONAR</button>
-      <div class="sonar-ring" id="sonar-ring"></div>
-      <div class="hidden-creatures">
-        <span class="hidden-creature" style="top:30%;left:15%">👁</span>
-        <span class="hidden-creature" style="top:55%;left:75%">🦑</span>
-        <span class="hidden-creature" style="top:20%;left:65%">🐟</span>
-      </div>
-    </div>
-    <div class="panorama-wrapper" id="panorama-wrapper">
-      <div class="panorama-track" id="panorama-track">
-        <div class="panorama-item"><span>🪼</span><p>Siphonophore — A 40-meter long colonial organism.</p></div>
-        <div class="panorama-item"><span>🦑</span><p>Giant Squid — Hunts aggressively in near-total darkness.</p></div>
-        <div class="panorama-item"><span>🐙</span><p>Vampire Squid — Bleeds bioluminescent ink to escape.</p></div>
-        <div class="panorama-item"><span>🐋</span><p>Sperm Whale — Dives violently down here to hunt squid.</p></div>
-      </div>
-    </div>
-    <div class="bio-particles" id="bio-particles"></div>
-  </section>
-
-  <!-- SECTION 4: ABYSSAL PLAIN -->
-  <section id="abyssal">
-    <div class="zone-label fade-element">Abyssal Plain (Abyssopelagic) — 1000 to 6000m</div>
-    <h2 class="zone-title fade-element delay-1">The Desert of the Deep</h2>
-    <p class="zone-body fade-element delay-2">Pressure here is 600 times what you feel right now.<br>And still — life finds a way.</p>
-    
-    <p class="story-passage fade-element delay-3">
-      You are now in the freezer of the deep. The water is near freezing, and the pressure is crushing—equivalent to an African elephant standing on your thumb. Food is so overwhelmingly scarce that meals arrive merely as 'marine snow' drifting down from dead organisms far above. Predators here, like the Anglerfish, cannot afford to chase prey. They must conserve energy, waiting in total stillness for a meal to wander toward a deceptive, glowing lure.
-    </p>
-
-    <div class="abyssal-timeline">
-      <div class="timeline-mark fade-element delay-1">1,000m — Midnight Zone begins</div>
-      <div class="timeline-mark fade-element delay-2">2,000m — No sunlight ever</div>
-      <div class="timeline-mark fade-element delay-3">3,800m — Titanic wreck site</div>
-      <div class="timeline-mark fade-element delay-4">4,000m — Abyssal Plain floor</div>
-      <div class="timeline-mark fade-element delay-4">6,000m — Hadal Zone threshold</div>
-    </div>
-    <div class="anglerfish-container fade-element delay-2" id="anglerfish-container">
-      <div class="anglerfish-lure" id="anglerfish-lure">●</div>
-      <div class="anglerfish-body" id="anglerfish-body">
-        <span class="teeth">⌇⌇⌇⌇⌇</span>
-        <span class="eye">◉</span>
-      </div>
-    </div>
-    <p class="hint-text fade-element delay-3">[ click the light ]</p>
-  </section>
-
-  <!-- SECTION 5: HADAL ZONE -->
-  <section id="hadal">
-    <div class="zone-label fade-element">Hadal Zone (Hadalpelagic) — 6000 to 11,000m</div>
-    <div class="pressure-crack"></div>
-    <div class="pulse-organism fade-element delay-1"></div>
-    <h2 class="zone-title" id="hadal-title"></h2>
-    
-    <p class="story-passage final-story fade-element delay-3" style="max-width: 800px; margin-top:2rem;">
-      Welcome to the Challenger Deep. You are standing further down from sea-level than the peak of Mount Everest is up in the sky. Down here in the jagged tectonic trenches, life doesn't rely on the sun at all. It sustains itself by converting toxic, boiling chemicals spewing from hydrothermal vents into energy. It is an alien world existing silently on our own planet, proving that where there is water, life will always conquer the impossible.
-    </p>
-
-    <div class="resurface-prompt fade-element delay-4">↑ Return to the Surface</div>
-  </section>
-
-  <script type="module" src="/src/main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bathys — Deep Sea Descent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
